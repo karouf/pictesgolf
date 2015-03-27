@@ -1,0 +1,7 @@
+<td>{{player-card player=scorecard.player}}</td>
+<td>{{tee-card tee=scorecard.tee}}</td>
+<td>{{playingIndex}}</td>
+{{#each score in scores}}
+  <td>{{score.strokes}}</td>
+{{/each}}
+<td>{{strokes}}</td>

@@ -1,0 +1,23 @@
+<div>
+  {{date-widget date=round.date}}
+  <h1>{{round.course.name}}</h1>
+  <p>{{round.holesPlayed}} trous - {{round.type}} - {{round.scoring}}</p>
+</div>
+<table>
+  <thead>
+    <tr>
+      <td>Joueur</td>
+      <td>Tee</td>
+      <td>Index de jeu</td>
+      {{#each hole in holes}}
+        <td>{{hole-card hole=hole}}</td>
+      {{/each}}
+      <td>Total</td>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each scorecard in round.scorecards}}
+    {{score-card scorecard=scorecard}}
+  {{/each}}
+  </tbody>
+</table>
