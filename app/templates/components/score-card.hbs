@@ -1,7 +1,9 @@
-<td>{{player-card player=scorecard.player}}</td>
-<td>{{tee-card tee=scorecard.tee}}</td>
-<td>{{playingIndex}}</td>
+{{player-card player=scorecard.player playingIndex=playingIndex}}
+{{tee-card tee=scorecard.tee}}
 {{#each score in scores}}
   <td>{{score.strokes}}</td>
 {{/each}}
 <td>{{strokes}}</td>
+<td>{{grossScore}}</td>
+<td>{{netScore}}</td>
+<td>{{virtualIndex}}</td>

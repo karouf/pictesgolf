@@ -117,7 +117,7 @@ module.exports = function(app) {
         id: 10,
         number: 10,
         par: 5,
-        strokeIndex: 5
+        strokeIndex: 6
       }
     });
   });
@@ -128,7 +128,7 @@ module.exports = function(app) {
         id: 11,
         number: 11,
         par: 4,
-        strokeIndex: 17 
+        strokeIndex: 1 
       }
     });
   });
@@ -139,7 +139,7 @@ module.exports = function(app) {
         id: 12,
         number: 12,
         par: 3,
-        strokeIndex: 15
+        strokeIndex: 14
       }
     });
   });
@@ -150,7 +150,7 @@ module.exports = function(app) {
         id: 13,
         number: 13,
         par: 4,
-        strokeIndex: 7
+        strokeIndex: 4
       }
     });
   });
@@ -160,8 +160,8 @@ module.exports = function(app) {
       'holes': {
         id: 14,
         number: 14,
-        par: 3,
-        strokeIndex: 3 
+        par: 4,
+        strokeIndex: 12 
       }
     });
   });
@@ -172,7 +172,7 @@ module.exports = function(app) {
         id: 15,
         number: 15,
         par: 4,
-        strokeIndex: 2
+        strokeIndex: 8
       }
     });
   });
@@ -183,7 +183,7 @@ module.exports = function(app) {
         id: 16,
         number: 16,
         par: 4,
-        strokeIndex: 13
+        strokeIndex: 16
       }
     });
   });
@@ -193,8 +193,8 @@ module.exports = function(app) {
       'holes': {
         id: 17,
         number: 17,
-        par: 5,
-        strokeIndex: 9
+        par: 3,
+        strokeIndex: 10
       }
     });
   });
@@ -204,8 +204,8 @@ module.exports = function(app) {
       'holes': {
         id: 18,
         number: 18,
-        par: 3,
-        strokeIndex: 11
+        par: 5,
+        strokeIndex: 18
       }
     });
   });

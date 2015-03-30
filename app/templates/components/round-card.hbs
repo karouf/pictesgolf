@@ -6,13 +6,22 @@
 <table>
   <thead>
     <tr>
-      <td>Joueur</td>
-      <td>Tee</td>
-      <td>Index de jeu</td>
+      <th>Trous</th>
       {{#each hole in holes}}
-        <td>{{hole-card hole=hole}}</td>
+        <td>{{hole.number}}</td>
       {{/each}}
-      <td>Total</td>
+      <th>Total</th>
+      <th colspan="2">Score</th>
+      <th>Index virtuel</th>
+    </tr>
+    <tr>
+      <th>Par</th>
+      {{#each hole in holes}}
+        <td>{{hole.par}}</td>
+      {{/each}}
+      <td>{{round.course.par}}</td>
+      <th>Brut</th>
+      <th>Net</th>
     </tr>
   </thead>
   <tbody>
