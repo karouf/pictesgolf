@@ -7,15 +7,27 @@ export default DS.Model.extend({
   hole: DS.belongsTo('hole', {async: true}), 
   netStableford: function() {
     var par = this.get('hole.par');
-    var receivedStrokes = this.get('scorecard.receivedStrokes')[this.get('hole.number') - 1];
+    var receivedStrokes = this.get('receivedStrokes');
     var strokes = this.get('strokes');
 
-    var net = (par + receivedStrokes) + 2 - strokes;
+    var net = par + receivedStrokes + 2 - strokes;
 
     if(net < 0) {
-      return 0;
-    } else {
-      return net;
+      net = 0;
     }
-  }.property('hole.par', 'scorecard.receivedStrokes', 'hole.number', 'strokes')
+
+    return net;
+  }.property('hole.par', 'receivedStrokes', 'strokes'),
+  grossStableford: function() {
+    var par = this.get('hole.par');
+    var strokes = this.get('strokes');
+
+    var net = par + 2 - strokes;
+
+    if(net < 0) {
+      net = 0;
+    }
+
+    return net;
+  }.property('hole.par', 'strokes')
 });

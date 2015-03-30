@@ -7,7 +7,6 @@ export default DS.Model.extend({
   scores: DS.hasMany('score', {async: true}),
   receivedStrokes: function() {
     var strokes = this.get('playingIndex');
-    var holesPlayed = this.get('round.holesPlayed');
     var scores = this.get('scoresByHoleIndex');
 
     var addReceivedstrokes = function(score) {
@@ -19,15 +18,16 @@ export default DS.Model.extend({
     };
 
     while(strokes > 0) {
-      scores.forEach(addReceivedstrokes(score));
+      scores.forEach(addReceivedstrokes);
     }
-  }.property('playingIndex', 'round.holesPlayed', 'scoresByHoleIndex'),
+  }.property('playingIndex', 'scoresByHoleIndex'),
   scoresByHoleIndex: function() {
     var holesPlayed = this.get('round.holesPlayed');
-    if(holesPlayed == 9) {
-      var scores = this.get('scores').slice(0, 9);
+    var scores;
+    if(holesPlayed === 9) {
+      scores = this.get('scores').slice(0, 9);
     } else {
-      var scores = this.get('scores');
+      scores = this.get('scores');
     }
 
     return scores.sortBy('hole.strokeIndex');
@@ -37,10 +37,12 @@ export default DS.Model.extend({
     var i;
     var orderedScores = [];
 
+    var hasHoleNumber = function(score) {
+      return score.get('hole.number') === this;
+    };
+
     for(i = 0; i < 18; i++) {
-      var score = scores.find(function(score) {
-        return score.get('hole.number') == i+1;
-      });
+      var score = scores.find(hasHoleNumber, i+1);
 
       if(score) {
         orderedScores[i] = score;

@@ -2,9 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'tr',
-  playingIndex: function() {
-    return 4;
-  }.property(),
   strokes: function() {
     var sum = function(sum, score) {
       if(score) {
@@ -12,7 +9,7 @@ export default Ember.Component.extend({
       } else {
         return sum;
       }
-    }
+    };
 
     return this.get('scores').reduce(sum, 0);
   }.property('scores.@each.stroke'),
@@ -21,10 +18,12 @@ export default Ember.Component.extend({
     var i;
     var orderedScores = [];
 
+    var hasHoleNumber = function(score) {
+      return score.get('hole.number') === this;
+    };
+
     for(i = 0; i < 18; i++) {
-      var score = scores.find(function(score) {
-        return score.get('hole.number') == i+1;
-      });
+      var score = scores.find(hasHoleNumber, i+1);
 
       if(score) {
         orderedScores[i] = score;
@@ -36,11 +35,15 @@ export default Ember.Component.extend({
     return orderedScores;
   }.property('scorecard.scores.@each.hole.number'),
   grossScore: function() {
-    return this.get('strokes') - this.get('par');
-  }.property('strokes', 'par'),
+    var scoring = this.get('scorecard.round.scoring');
+    var scoringRule = 'gross' + scoring.charAt(0).toUpperCase() + scoring.slice(1);
+    return this.get(scoringRule);
+  }.property('scorecard.round.scoring', 'scores'),
   netScore: function() {
-    return this.get('grossScore') - this.get('scorecard.playingIndex');
-  }.property('grossScore', 'scorecard.playingIndex'),
+    var scoring = this.get('scorecard.round.scoring');
+    var scoringRule = 'net' + scoring.charAt(0).toUpperCase() + scoring.slice(1);
+    return this.get(scoringRule);
+  }.property('scorecard.round.scoring', 'scores'),
   par: function() {
     var sum = function(sum, score) {
       if(score) {
@@ -77,8 +80,8 @@ export default Ember.Component.extend({
   }.property('scorecard.player.index'),
   indexEvolution: function() {
     var netStableford = this.get('netStableford');
-    var minBuffer = this.get('bufferMatrix')[this.get('indexCategory')][this.get('scorecard.round.holesPlayed')][0];
-    var maxBuffer = this.get('bufferMatrix')[this.get('indexCategory')][this.get('scorecard.round.holesPlayed')]     [1];
+    var minBuffer = this.get('bufferMatrix')[this.get('indexCategory').toString()][this.get('scorecard.round.holesPlayed').toString()]['min'];
+    var maxBuffer = this.get('bufferMatrix')[this.get('indexCategory').toString()][this.get('scorecard.round.holesPlayed').toString()]['max'];
 
     if(netStableford < minBuffer) {
       return 'up';
@@ -120,7 +123,7 @@ export default Ember.Component.extend({
            noop: 0,
            down: -1
          },
-    }
+    };
   }.property(),
   bufferMatrix: function() {
     return {
@@ -184,7 +187,7 @@ export default Ember.Component.extend({
                   max: 36
                }
          }
-    }
+    };
   }.property(),
   netStableford: function() {
     var sum = function(sum, score) {
@@ -193,8 +196,31 @@ export default Ember.Component.extend({
       } else {
         return sum;
       }
+    };
+
+    var total = this.get('scores').reduce(sum, 0);
+
+    if(this.get('scorecard.round.holesPlayed') === 9) {
+      total += 18;
     }
 
+    return total;
+  }.property('scores.@each.netStableford'),
+  grossStableford: function() {
+    var sum = function(sum, score) {
+      if(score) {
+        return sum + score.get('grossStableford');
+      } else {
+        return sum;
+      }
+    };
+
     return this.get('scores').reduce(sum, 0);
-  }.property('scores.@each.netStableford')
+  }.property('scores.@each.grossStableford'),
+  netStrokeplay: function() {
+    return this.get('strokes') - this.get('par') - this.get('scorecard.playingIndex');
+  }.property('strokes', 'par', 'scorecard.playingIndex'),
+  grossStrokeplay: function() {
+    return this.get('strokes') - this.get('par');
+  }.property('strokes', 'par')
 });

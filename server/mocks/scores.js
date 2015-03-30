@@ -17,6 +17,7 @@ module.exports = function(app) {
       'scores': {
         id: 1,
         strokes: 11,
+        receivedStrokes: 3,
         scorecard: 1,
         hole: 1
       }
@@ -28,6 +29,7 @@ module.exports = function(app) {
       'scores': {
         id: 2,
         strokes: 6,
+        receivedStrokes: 3,
         scorecard: 1,
         hole: 2
       }
@@ -39,6 +41,7 @@ module.exports = function(app) {
       'scores': {
         id: 3,
         strokes: 5,
+        receivedStrokes: 3,
         scorecard: 1,
         hole: 3
       }
@@ -50,6 +53,7 @@ module.exports = function(app) {
       'scores': {
         id: 4,
         strokes: 11,
+        receivedStrokes: 3,
         scorecard: 1,
         hole: 4
       }
@@ -61,6 +65,7 @@ module.exports = function(app) {
       'scores': {
         id: 5,
         strokes: 3,
+        receivedStrokes: 4,
         scorecard: 1,
         hole: 5
       }
@@ -72,6 +77,7 @@ module.exports = function(app) {
       'scores': {
         id: 6,
         strokes: 8,
+        receivedStrokes: 4,
         scorecard: 1,
         hole: 6
       }
@@ -83,6 +89,7 @@ module.exports = function(app) {
       'scores': {
         id: 7,
         strokes: 8,
+        receivedStrokes: 3,
         scorecard: 1,
         hole: 7
       }
@@ -94,6 +101,7 @@ module.exports = function(app) {
       'scores': {
         id: 8,
         strokes: 10,
+        receivedStrokes: 3,
         scorecard: 1,
         hole: 8
       }
@@ -105,6 +113,7 @@ module.exports = function(app) {
       'scores': {
         id: 9,
         strokes: 5,
+        receivedStrokes: 3,
         scorecard: 1,
         hole: 9
       }
@@ -116,6 +125,7 @@ module.exports = function(app) {
       'scores': {
         id: 10,
         strokes: 12,
+        receivedStrokes: 3,
         scorecard: 2,
         hole: 1
       }
@@ -127,6 +137,7 @@ module.exports = function(app) {
       'scores': {
         id: 11,
         strokes: 8,
+        receivedStrokes: 3,
         scorecard: 2,
         hole: 2
       }
@@ -138,6 +149,7 @@ module.exports = function(app) {
       'scores': {
         id: 12,
         strokes: 9,
+        receivedStrokes: 3,
         scorecard: 2,
         hole: 3
       }
@@ -149,6 +161,7 @@ module.exports = function(app) {
       'scores': {
         id: 13,
         strokes: 8,
+        receivedStrokes: 3,
         scorecard: 2,
         hole: 4
       }
@@ -160,6 +173,7 @@ module.exports = function(app) {
       'scores': {
         id: 14,
         strokes: 6,
+        receivedStrokes: 4,
         scorecard: 2,
         hole: 5
       }
@@ -171,6 +185,7 @@ module.exports = function(app) {
       'scores': {
         id: 15,
         strokes: 8,
+        receivedStrokes: 4,
         scorecard: 2,
         hole: 6
       }
@@ -182,6 +197,7 @@ module.exports = function(app) {
       'scores': {
         id: 16,
         strokes: 4,
+        receivedStrokes: 3,
         scorecard: 2,
         hole: 7
       }
@@ -193,6 +209,7 @@ module.exports = function(app) {
       'scores': {
         id: 17,
         strokes: 7,
+        receivedStrokes: 3,
         scorecard: 2,
         hole: 8
       }
@@ -204,6 +221,7 @@ module.exports = function(app) {
       'scores': {
         id: 18,
         strokes: 6,
+        receivedStrokes: 3,
         scorecard: 2,
         hole: 9
       }
