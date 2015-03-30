@@ -1,1 +1,28 @@
 @import 'materialize';
+
+.date-widget {
+  @extend .deep-orange;
+  @extend .darken-2;
+  @extend .white-text;
+  font-weight: bold;
+  height: 4rem;
+  width: 4rem;
+}
+
+.round-card__golf-course {
+  font-size: 4.2rem;
+}
+
+.round-card__details {
+  font-size: 2.28rem;
+}
+
+.round-card__tees {
+  font-size: 1rem;
+}
+
+.tee__color.yellow {
+  @extend .yellow;
+  @extend .accent-3;
+  @include border-radius(1rem);
+}

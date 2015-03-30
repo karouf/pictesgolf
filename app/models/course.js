@@ -14,5 +14,6 @@ export default DS.Model.extend({
     return this.get('holes').reduce(sum, 0);
   }.property('holes.@each.par'),
   rounds: DS.hasMany('round', {async: true}),
-  holes: DS.hasMany('hole', {async: true})
+  holes: DS.hasMany('hole', {async: true}),
+  tees: DS.hasMany('tee', {async: true})
 });
