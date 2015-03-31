@@ -1,23 +1,15 @@
 <h1>Styleguide</h1>
 <h2>Components</h2>
 <h3>Tee card</h3>
-<h4>Output</h4>
-<div class="styleguide__output">
+{{#styleguide-output}}
   {{tee-card tee=tee}}
-</div>
+{{/styleguide-output}}
 
 <h4>Handlebars markup</h4>
 <pre class="styleguide__ember">
   \{{tee-card tee=tee}}
 </pre>
 
-<h4>Generated HTML</h4>
-<pre class="styleguide__html">
-&lt;div class="tee"&gt;
-  &lt;div class="tee__color tee__color--yellow"/&gt;
-  &lt;div&gt;
-    &lt;div class="tee_sss"&gt;SSS : 69.5&lt;/div&gt;
-    &lt;div class="tee_slope"&gt;Slope : 126&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</pre>
+{{#styleguide-html arg='yo'}}
+  {{tee-card tee=tee}}
+{{/styleguide-html}}
