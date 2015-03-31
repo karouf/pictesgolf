@@ -17,12 +17,20 @@
   font-size: 2.28rem;
 }
 
-.round-card__tees {
+.tee {
   font-size: 1rem;
+  padding: 0.5rem;
 }
 
-.tee__color.yellow {
+.tee__color {
+  @include border-radius(1.5rem);
+  width: 3rem;
+  height: 3rem;
+  float: left;
+  margin-right: 0.5rem;
+}
+
+.tee__color--yellow {
   @extend .yellow;
   @extend .accent-3;
-  @include border-radius(1rem);
 }
