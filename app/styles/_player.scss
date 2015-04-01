@@ -1,0 +1,19 @@
+.player {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.player__picture {
+  @include border-radius(1.5rem);
+  height: 3rem;
+  width: 3rem;
+  float: left;
+  margin-top: 0.2rem;
+  margin-right: 0.5rem;
+  border: 2px solid #ddd;
+}
+
+.player__name {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
