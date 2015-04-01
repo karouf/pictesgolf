@@ -6,5 +6,8 @@ export default Ember.Controller.extend({
   }.property(),
   player: function() {
     return this.store.find('player', 1);
+  }.property(),
+  date: function() {
+    return new Date();
   }.property()
 });

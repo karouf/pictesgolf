@@ -1,16 +1,8 @@
 @import 'materialize';
 @import 'tee';
 @import 'player';
+@import 'date-widget';
 @import 'styleguide';
-
-.date-widget {
-  @extend .deep-orange;
-  @extend .darken-2;
-  @extend .white-text;
-  font-weight: bold;
-  height: 4rem;
-  width: 4rem;
-}
 
 .round-card__golf-course {
   font-size: 4.2rem;

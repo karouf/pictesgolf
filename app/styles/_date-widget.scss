@@ -1,0 +1,26 @@
+.date-widget {
+  width: 4rem;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: bold;
+  border: 1px solid #e64a19;
+  padding: 2px;
+}
+
+.date-widget__day, .date-widget__year {
+  @extend .deep-orange-text;
+  @extend .text-darken-2;
+}
+
+.date-widget__day {
+}
+
+.date-widget__year {
+}
+
+.date-widget__month {
+  @extend .deep-orange;
+  @extend .darken-2;
+  @extend .white-text;
+  text-transform: uppercase;
+}
