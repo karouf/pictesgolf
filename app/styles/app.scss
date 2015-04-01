@@ -1,4 +1,6 @@
 @import 'materialize';
+@import 'tee';
+@import 'styleguide';
 
 .date-widget {
   @extend .deep-orange;
@@ -15,22 +17,4 @@
 
 .round-card__details {
   font-size: 2.28rem;
-}
-
-.tee {
-  font-size: 1rem;
-  padding: 0.5rem;
-}
-
-.tee__color {
-  @include border-radius(1.5rem);
-  width: 3rem;
-  height: 3rem;
-  float: left;
-  margin-right: 0.5rem;
-}
-
-.tee__color--yellow {
-  @extend .yellow;
-  @extend .accent-3;
 }
