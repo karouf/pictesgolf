@@ -1,4 +1,5 @@
 .player {
+  display: flex;
   font-size: 1rem;
   padding: 0.5rem;
 }
@@ -6,9 +7,9 @@
 .player__picture {
   @include border-radius(1.5rem);
   height: 3rem;
-  width: 3rem;
+  min-width: 3rem;
   float: left;
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
   margin-right: 0.5rem;
   border: 2px solid #ddd;
 }
