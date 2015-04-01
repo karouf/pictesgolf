@@ -11,8 +11,31 @@
   margin-right: 0.5rem;
 }
 
+.tee__color--red {
+  @extend .red;
+  @extend .darken-1;
+  border: 2px solid #c62828;
+}
+
+.tee__color--blue {
+  @extend .blue;
+  @extend .accent-3;
+  border: 2px solid #1565c0;
+}
+
 .tee__color--yellow {
   @extend .yellow;
   @extend .accent-3;
   border: 2px solid #ffd600;
+}
+
+.tee__color--white {
+  @extend .white;
+  @extend .accent-3;
+  border: 2px solid #dbdbdb ;
+}
+
+.tee__color--black {
+  @extend .black;
+  @extend .accent-3;
 }

@@ -10,12 +10,8 @@
       </div>
       <div class="round-card__tees col s12 m5 row">
         {{#each tee in round.course.tees}}
-          <div class="round-card__tee tee col s3 m3 row">
-            <div {{bind-attr class=":tee__color tee.color :col :s2 :m2"}}/>
-            <div class="col s10 m10">
-              <div class="tee_sss col s12 m12">SSS : {{tee.sss}}</div>
-              <div class="tee_slope col s12 m12">Slope : {{tee.slope}}</div>
-            </div>
+          <div class="col s4 m4 row">
+            {{tee-card tee=tee}}
           </div>
         {{/each}}
       </div>
