@@ -1,47 +1,49 @@
 {{#materialize-card}}
   {{#materialize-card-content}}
-    <div class="round-card__header row">
-      <div class="round-card__date col s3 m2">
-        {{date-widget date=round.date}}
+    <div class="round-card">
+      <div class="round-card__header row">
+        <div class="round-card__date col s3 m1">
+          {{date-widget date=round.date}}
+        </div>
+        <div class="col s9 m7">
+          <p class="round-card__golf-course">{{round.course.name}}</p>
+          <p class="round-card__details">{{round.holesPlayed}} trous - {{round.type}} - {{round.scoring}}</p>
+        </div>
+        <div class="round-card__tees col s12 m4 row">
+          {{#each tee in round.course.tees}}
+            <div class="col s6 m6 row">
+              {{tee-card tee=tee}}
+            </div>
+          {{/each}}
+        </div>
       </div>
-      <div class="col s9 m5">
-        <p class="round-card__golf-course">{{round.course.name}}</p>
-        <p class="round-card__details">{{round.holesPlayed}} trous - {{round.type}} - {{round.scoring}}</p>
-      </div>
-      <div class="round-card__tees col s12 m5 row">
-        {{#each tee in round.course.tees}}
-          <div class="col s4 m4 row">
-            {{tee-card tee=tee}}
-          </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Trous</th>
+            {{#each hole in holes}}
+              <td>{{hole.number}}</td>
+            {{/each}}
+            <th>Total</th>
+            <th colspan="2">Score</th>
+            <th>Index virtuel</th>
+          </tr>
+          <tr>
+            <th>Par</th>
+            {{#each hole in holes}}
+              <td>{{hole.par}}</td>
+            {{/each}}
+            <td>{{round.course.par}}</td>
+            <th>Brut</th>
+            <th>Net</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each scorecard in round.scorecards}}
+          {{score-card scorecard=scorecard}}
         {{/each}}
-      </div>
+        </tbody>
+      </table>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Trous</th>
-          {{#each hole in holes}}
-            <td>{{hole.number}}</td>
-          {{/each}}
-          <th>Total</th>
-          <th colspan="2">Score</th>
-          <th>Index virtuel</th>
-        </tr>
-        <tr>
-          <th>Par</th>
-          {{#each hole in holes}}
-            <td>{{hole.par}}</td>
-          {{/each}}
-          <td>{{round.course.par}}</td>
-          <th>Brut</th>
-          <th>Net</th>
-        </tr>
-      </thead>
-      <tbody>
-      {{#each scorecard in round.scorecards}}
-        {{score-card scorecard=scorecard}}
-      {{/each}}
-      </tbody>
-    </table>
-{{/materialize-card-content}}
+  {{/materialize-card-content}}
 {{/materialize-card}}
