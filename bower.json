@@ -13,6 +13,7 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "ember-cli-moment-shim": "~0.0.3",
-    "materialize": "~0.95.0"
+    "materialize": "~0.95.0",
+    "ember-template-compiler": "http://builds.emberjs.com/tags/v1.10.0/ember-template-compiler.js"
   }
 }

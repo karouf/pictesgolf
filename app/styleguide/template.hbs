@@ -1,46 +1,8 @@
 <h1>Styleguide</h1>
 <h2>Components</h2>
-<h3>Tee</h3>
-<div class="styleguide">
-{{#styleguide-output}}
-  {{tee-card tee=tee}}
-{{/styleguide-output}}
 
-<div class="styleguide__ember valign-wrapper">
-  <pre class="valign">\{{tee-card tee=tee}}</pre>
-</div>
+{{styleguide-component component="tee-card" tee=tee}}
 
-{{#styleguide-html}}
-  {{tee-card tee=tee}}
-{{/styleguide-html}}
-</div>
+{{styleguide-component component="player-card" player=player}}
 
-<h3>Player</h3>
-<div class="styleguide">
-{{#styleguide-output}}
-  {{player-card player=player}}
-{{/styleguide-output}}
-
-<div class="styleguide__ember valign-wrapper">
-  <pre class="valign">\{{player-card player=player}}</pre>
-</div>
-
-{{#styleguide-html}}
-  {{player-card player=player}}
-{{/styleguide-html}}
-</div>
-
-<h3>Date widget</h3>
-<div class="styleguide">
-{{#styleguide-output}}
-  {{date-widget date=date}}
-{{/styleguide-output}}
-
-<div class="styleguide__ember valign-wrapper">
-  <pre class="valign">\{{date-widget date=date}}</pre>
-</div>
-
-{{#styleguide-html}}
-  {{date-widget date=date}}
-{{/styleguide-html}}
-</div>
+{{styleguide-component component="date-widget" date=date}}
