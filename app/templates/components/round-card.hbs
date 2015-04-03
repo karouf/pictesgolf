@@ -17,25 +17,25 @@
           {{/each}}
         </div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Trous</th>
+      <table class="round-card__scorecards">
+        <thead class="round-card__scorecards-header">
+          <tr class="round-card__holes">
+            <th class="right-align">Trou n°</th>
             {{#each hole in holes}}
-              <td>{{hole.number}}</td>
+              <td class="round-card__hole">{{hole.number}}</td>
             {{/each}}
-            <th>Total</th>
-            <th colspan="2">Score</th>
-            <th>Index virtuel</th>
+            <th class="center-align">Total</th>
+            <th class="center-align" colspan="2">Score</th>
+            <th class="center-align" rowspan="2">Index virtuel</th>
           </tr>
-          <tr>
-            <th>Par</th>
+          <tr class="round-card__pars">
+            <th class="right-align">Par</th>
             {{#each hole in holes}}
-              <td>{{hole.par}}</td>
+              <td class="round-card__par">{{hole.par}}</td>
             {{/each}}
-            <td>{{round.course.par}}</td>
-            <th>Brut</th>
-            <th>Net</th>
+            <td class="center-align">{{round.course.par}}</td>
+            <th class="center-align">Brut</th>
+            <th class="center-align">Net</th>
           </tr>
         </thead>
         <tbody>

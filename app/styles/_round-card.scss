@@ -1,0 +1,35 @@
+.round-card__golf-course {
+  font-size: 4.2em;
+  text-align: center;
+}
+
+.round-card__details {
+  font-size: 2.28em;
+  text-align: center;
+}
+
+.round-card__header .tee {
+  font-size: 75%;
+}
+
+.round-card__scorecards-header th, .round-card__scorecards-header td {
+  @include border-radius(0);
+  border: 1px solid #9e9e9e;
+}
+
+.round-card__holes {
+  @extend .grey;
+  @extend .darken-3;
+  @extend .white-text;
+}
+
+.round-card__pars {
+  @extend .grey;
+  @extend .darken-2;
+  @extend .white-text;
+}
+
+.round-card__hole, .round-card__par {
+  min-width: 2em;
+  text-align: center;
+}
