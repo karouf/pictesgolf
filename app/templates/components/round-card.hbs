@@ -9,7 +9,7 @@
           <p class="round-card__golf-course">{{round.course.name}}</p>
           <p class="round-card__details">{{round.holesPlayed}} trous - {{round.type}} - {{round.scoring}}</p>
         </div>
-        <div class="round-card__tees col s12 m4 row">
+        <div class="round-card__tees col s12 m4">
           {{#each tee in round.course.tees}}
             <div class="col s6 m6 row">
               {{tee-card tee=tee}}
