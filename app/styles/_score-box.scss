@@ -1,0 +1,28 @@
+.score-card__score--condor {
+  @extend .purple;
+}
+
+.score-card__score--albatross {
+  @extend .indigo;
+}
+
+.score-card__score--birdie {
+  @extend .cyan;
+}
+
+.score-card__score--par {
+  @extend .green;
+}
+
+.score-card__score--bogey {
+  @extend .yellow;
+}
+
+.score-card__score--double-bogey {
+  @extend .orange;
+}
+
+.score-card__score--triple-bogey {
+  @extend .red;
+}
+

@@ -1,0 +1,8 @@
+.score-card__score, .score-card__total, .score-card__gross-score, .score-card__net-score, .score-card__virtual-index {
+  text-align: center;
+  border: 1px solid #9e9e9e;
+}
+
+.score-card__total, .score-card__gross-score, .score-card__net-score, .score-card__virtual-index {
+  font-weight: bold;
+}

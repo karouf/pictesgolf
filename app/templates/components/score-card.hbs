@@ -1,8 +1,8 @@
 {{player-card player=scorecard.player playingIndex=playingIndex}}
 {{#each score in scores}}
-  <td>{{score.strokes}}</td>
+  {{score-box score=score}}
 {{/each}}
-<td>{{strokes}}</td>
-<td>{{grossScore}}</td>
-<td>{{netScore}}</td>
-<td>{{virtualIndex}} ({{indexDiff}})</td>
+<td class="score-card__total">{{strokes}}</td>
+<td class="score-card__gross-score">{{grossScore}}</td>
+<td class="score-card__net-score">{{netScore}}</td>
+<td class="score-card__virtual-index">{{virtualIndex}} ({{indexDiff}})</td>
