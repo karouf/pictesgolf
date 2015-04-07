@@ -1,0 +1,56 @@
+.scorecard-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 1em;
+}
+
+.scorecard-legend__item {
+  display: flex;
+  padding: 0.2em;
+  margin-right: 1em;
+}
+
+.scorecard-legend__color {
+  @include border-radius(0.5em);
+  height: 1em;
+  width: 1em;
+  position: relative;
+  top: 0.2em;
+  margin-right: 0.2em;
+}
+
+.scorecard-legend__score {
+}
+
+.scorecard-legend__color--condor {
+  @extend .purple;
+}
+
+.scorecard-legend__color--albatross {
+  @extend .indigo;
+}
+
+.scorecard-legend__color--eagle {
+  @extend .blue;
+}
+
+.scorecard-legend__color--birdie {
+  @extend .cyan;
+}
+
+.scorecard-legend__color--par {
+  @extend .green;
+}
+
+.scorecard-legend__color--bogey {
+  @extend .yellow;
+}
+
+.scorecard-legend__color--double-bogey {
+  @extend .orange;
+}
+
+.scorecard-legend__color--triple-bogey {
+  @extend .red;
+}
