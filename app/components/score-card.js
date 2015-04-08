@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'tr',
+  classNames: ['score-card'],
   strokes: function() {
     var sum = function(sum, score) {
       if(score) {
