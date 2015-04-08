@@ -16,10 +16,10 @@ export default Ember.Component.extend({
     if(toPar > 3) { toPar = 3; }
 
     switch(toPar) {
-      case -2:
+      case -4:
         perf = 'condor';
         break;
-      case -2:
+      case -3:
         perf = 'albatross';
         break;
       case -2:
