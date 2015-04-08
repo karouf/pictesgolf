@@ -24,33 +24,33 @@
 }
 
 .scorecard-legend__color--condor {
-  @extend .purple;
+  @extend .condor;
 }
 
 .scorecard-legend__color--albatross {
-  @extend .indigo;
+  @extend .albatross;
 }
 
 .scorecard-legend__color--eagle {
-  @extend .blue;
+  @extend .eagle;
 }
 
 .scorecard-legend__color--birdie {
-  @extend .cyan;
+  @extend .birdie;
 }
 
 .scorecard-legend__color--par {
-  @extend .green;
+  @extend .par;
 }
 
 .scorecard-legend__color--bogey {
-  @extend .yellow;
+  @extend .bogey;
 }
 
 .scorecard-legend__color--double-bogey {
-  @extend .orange;
+  @extend .double-bogey;
 }
 
 .scorecard-legend__color--triple-bogey {
-  @extend .red;
+  @extend .triple-bogey;
 }

@@ -16,7 +16,7 @@ module.exports = function(app) {
     res.send({
       'scores': {
         id: 1,
-        strokes: 11,
+        strokes: 1,
         receivedStrokes: 3,
         scorecard: 1,
         hole: 1
@@ -40,7 +40,7 @@ module.exports = function(app) {
     res.send({
       'scores': {
         id: 3,
-        strokes: 5,
+        strokes: 2,
         receivedStrokes: 3,
         scorecard: 1,
         hole: 3
@@ -52,7 +52,7 @@ module.exports = function(app) {
     res.send({
       'scores': {
         id: 4,
-        strokes: 11,
+        strokes: 2,
         receivedStrokes: 3,
         scorecard: 1,
         hole: 4
@@ -76,7 +76,7 @@ module.exports = function(app) {
     res.send({
       'scores': {
         id: 6,
-        strokes: 8,
+        strokes: 5,
         receivedStrokes: 4,
         scorecard: 1,
         hole: 6
@@ -100,7 +100,7 @@ module.exports = function(app) {
     res.send({
       'scores': {
         id: 8,
-        strokes: 10,
+        strokes: 2,
         receivedStrokes: 3,
         scorecard: 1,
         hole: 8

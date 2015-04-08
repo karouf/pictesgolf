@@ -1,28 +1,37 @@
+.score-card__score {
+  background-color: #e0e0e0;
+  @extend .white-text;
+}
+
 .score-card__score--condor {
-  @extend .purple;
+  @extend .condor;
 }
 
 .score-card__score--albatross {
-  @extend .indigo;
+  @extend .albatross;
+}
+
+.score-card__score--eagle {
+  @extend .eagle;
 }
 
 .score-card__score--birdie {
-  @extend .cyan;
+  @extend .birdie;
 }
 
 .score-card__score--par {
-  @extend .green;
+  @extend .par;
 }
 
 .score-card__score--bogey {
-  @extend .yellow;
+  @extend .bogey;
 }
 
 .score-card__score--double-bogey {
-  @extend .orange;
+  @extend .double-bogey;
 }
 
 .score-card__score--triple-bogey {
-  @extend .red;
+  @extend .triple-bogey;
 }
 

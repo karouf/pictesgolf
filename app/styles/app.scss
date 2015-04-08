@@ -7,3 +7,43 @@
 @import 'scorecard-legend';
 @import 'date-widget';
 @import 'styleguide';
+
+.condor {
+  @extend .purple;
+  @extend .darken-2;
+}
+
+.albatross {
+  @extend .indigo;
+  @extend .darken-2;
+}
+
+.eagle {
+  @extend .blue;
+  @extend .darken-2;
+}
+
+.birdie {
+  @extend .cyan;
+  @extend .darken-2;
+}
+
+.par {
+  @extend .green;
+  @extend .darken-2;
+}
+
+.bogey {
+  @extend .yellow;
+  @extend .darken-2;
+}
+
+.double-bogey {
+  @extend .orange;
+  @extend .darken-2;
+}
+
+.triple-bogey {
+  @extend .red;
+  @extend .darken-2;
+}
