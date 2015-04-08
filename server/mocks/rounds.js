@@ -9,7 +9,7 @@ module.exports = function(app) {
           id: 1,
           date: '2015-03-05',
           holesPlayed: 9,
-          scoring: 'strokeplay',
+          scoring: 'stableford',
           type: 'amical',
           course: 1,
           scorecards: [1, 2]
@@ -22,10 +22,16 @@ module.exports = function(app) {
     res.status(201).end();
   });
 
-  roundsRouter.get('/:id', function(req, res) {
+  roundsRouter.get('/1', function(req, res) {
     res.send({
       'rounds': {
-        id: req.params.id
+        id: 1,
+        date: '2015-03-05',
+        holesPlayed: 9,
+        scoring: 'stableford',
+        type: 'amical',
+        course: 1,
+        scorecards: [1, 2]
       }
     });
   });

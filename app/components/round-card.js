@@ -2,6 +2,28 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   holes: function() {
-    return this.get('round.course.holes').sortBy('number');
+    var round = this.get('round');
+    var course, promise;
+
+    if(round.isFulfilled === undefined || round.isFulfilled === true) {
+      promise = round.get('course').then(function(course) {
+        return course.get('holes').then(function(holes) {
+          return holes.sortBy('number');
+        });
+      });
+    } else {
+      promise = this.get('round').then(function(round) {
+        return round.get('course').then(function(course) {
+          return course.get('holes').then(function(holes) {
+            return holes.sortBy('number');
+          });
+        });
+      });
+    }
+
+    return DS.PromiseArray.create({
+      promise: promise
+    });
+    //return this.get('round.course').getEach('holes').sortBy('number');
   }.property('round.course.holes.@each.number')
 });

@@ -9,5 +9,8 @@ export default Ember.Controller.extend({
   }.property(),
   date: function() {
     return new Date();
-  }.property()
+  }.property(),
+  round: function() {
+    return this.store.find('round', 1);
+  }.property(),
 });
