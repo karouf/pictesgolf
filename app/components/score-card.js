@@ -93,39 +93,46 @@ export default Ember.Component.extend({
     }
   }.property('netStableford', 'bufferMatrix', 'indexCategory', 'scorecard.round.holesPlayed'),
   indexEvolutionMatrix: function() {
+    var netStableford = this.get('netStableford');
+    var maxBuffer = this.get('bufferMatrix')[this.get('indexCategory').toString()][this.get('scorecard.round.holesPlayed').toString()]['max'];
+    var overBuffer = netStableford - maxBuffer;
+    if(overBuffer < 0) {
+      overBuffer = 0;
+    }
+
     return {
       1: {
            up: 0.1,
            noop: 0,
-           down: -0.1
+           down: -0.1 * overBuffer
          },
       2: {
            up: 0.1,
            noop: 0,
-           down: -0.2
+           down: -0.2 * overBuffer
          },
       3: {
            up: 0.1,
            noop: 0,
-           down: -0.3
+           down: -0.3 * overBuffer
          },
       4: {
            up: 0.1,
            noop: 0,
-           down: -0.4
+           down: -0.4 * overBuffer
          },
       5: {
            up: 0.2,
            noop: 0,
-           down: -0.5
+           down: -0.5 * overBuffer
          },
       6: {
            up: 0,
            noop: 0,
-           down: -1
+           down: -1 * overBuffer
          },
     };
-  }.property(),
+  }.property('netStableford', 'bufferMatrix', 'indexCategory', 'scorecard.round.holesPlayed'),
   bufferMatrix: function() {
     return {
       1: {
