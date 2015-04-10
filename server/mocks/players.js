@@ -4,7 +4,20 @@ module.exports = function(app) {
 
   playersRouter.get('/', function(req, res) {
     res.send({
-      'players': []
+      'players': [
+        {
+          id: 1,
+          name: 'Renaud Martinet',
+          index: 54,
+          scorecards: [1]
+        },
+        {
+          id: 2,
+          name: 'Yann Allirol',
+          index: 54,
+          scorecards: [2]
+        }
+      ]
     });
   });
 

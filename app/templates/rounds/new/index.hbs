@@ -1,0 +1,84 @@
+<h3>Nouvelle partie</h3>
+
+<div class="row">
+  <h4>Date & lieu</h4>
+  <div class="input-field col s6">
+    <label for="date" class="active">Date</label>
+    {{input id="date" type="date" value=date}}
+  </div>
+
+  <div class="col s6">
+  {{materialize-select content=courses value=course label="Golf" prompt="Choisissez un golf" optionLabelPath="content.name" optionValuePath="content"}}
+  </div>
+</div>
+
+{{#if courseChosen}}
+  <h4>Joueurs</h4>
+  {{#if hasPlayer1}}
+    <div class="row">
+      <div class="col s6">
+        {{materialize-select content=players value=player1 label="Joueur 1" prompt="Choisissez un joueur" optionLabelPath="content.name" optionValuePath="content"}}
+      </div>
+      {{#if tees.isFulfilled}}
+        <div class="col s5">
+          {{materialize-select content=tees value=tee1 label="Tee" prompt="Choisissez un départ" optionLabelPath="content.color" optionValuePath="content"}}
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  {{#if hasPlayer2}}
+    <div class="row">
+      <div class="col s6">
+        {{materialize-select content=players value=player2 label="Joueur 2" prompt="Choisissez un joueur" optionLabelPath="content.name" optionValuePath="content"}}
+      </div>
+      {{#if tees.isFulfilled}}
+        <div class="col s5">
+          {{materialize-select content=tees value=tee2 label="Tee" prompt="Choisissez un départ" optionLabelPath="content.color" optionValuePath="content"}}
+        </div>
+      {{/if}}
+      {{materialize-button icon="mdi-content-remove" action="removePlayer2" buttonType="floating"}}
+    </div>
+  {{/if}}
+
+  {{#if hasPlayer3}}
+    <div class="row">
+      <div class="col s6">
+    {{materialize-select content=players value=player3 label="Joueur 3" prompt="Choisissez un joueur" optionLabelPath="content.name" optionValuePath="content"}}
+      </div>
+    {{#if tees.isFulfilled}}
+        <div class="col s5">
+      {{materialize-select content=tees value=tee3 label="Tee" prompt="Choisissez un départ" optionLabelPath="content.color" optionValuePath="content"}}
+        </div>
+    {{/if}}
+    {{materialize-button icon="mdi-content-remove" action="removePlayer3" buttonType="floating"}}
+    </div>
+  {{/if}}
+
+  {{#if hasPlayer4}}
+    <div class="row">
+      <div class="col s6">
+    {{materialize-select content=players value=player4 label="Joueur 4" prompt="Choisissez un joueur" optionLabelPath="content.name" optionValuePath="content"}}
+      </div>
+    {{#if tees.isFulfilled}}
+        <div class="col s5">
+      {{materialize-select content=tees value=tee4 label="Tee" prompt="Choisissez un départ" optionLabelPath="content.color" optionValuePath="content"}}
+        </div>
+    {{/if}}
+    {{materialize-button icon="mdi-content-remove" action="removePlayer4" buttonType="floating"}}
+    </div>
+  {{/if}}
+
+  {{#if canAddPlayer}}
+    <div class="row">
+      {{materialize-button icon="mdi-content-add" action="addPlayer" buttonType="floating"}}
+    </div>
+  {{/if}}
+
+  {{#if playersAndTeesChosen}}
+    <div class="row">
+      {{materialize-button icon="mdi-content-send" action="enterScores" text="Entrer les scores"}}
+    </div>
+  {{/if}}
+{{/if}}
+

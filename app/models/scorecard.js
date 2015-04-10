@@ -4,6 +4,7 @@ export default DS.Model.extend({
   playingIndex: DS.attr('number'),
   round: DS.belongsTo('round', {async: true}),
   player: DS.belongsTo('player', {async: true}),
+  tee: DS.belongsTo('tee', {async: true}),
   scores: DS.hasMany('score', {async: true}),
   receivedStrokes: function() {
     var strokes = this.get('playingIndex');

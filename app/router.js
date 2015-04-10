@@ -7,6 +7,11 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('styleguide');
+  this.resource('rounds', function() {
+    this.route('new', function() {
+      this.route('scores');
+    });
+  });
 });
 
 export default Router;
