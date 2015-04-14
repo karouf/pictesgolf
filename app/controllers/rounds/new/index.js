@@ -114,9 +114,22 @@ export default Ember.ObjectController.extend({
       scorecard.set('tee', player.get('tee'));
 
       var scores = scorecard.get('scores');
-      var holes = round.get('course.holes');
-      holes.forEach(function(hole) {
-        scores.pushObject(self.store.createRecord('score', { hole: hole }));
+      round.get('course.holes').then(function(holes) {
+        var strokesToGive = 57;
+        var receivedStrokes = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+        while(strokesToGive > 0) {
+          holes.sortBy('strokeIndex').forEach(function(hole, index) {
+            if(strokesToGive > 0) {
+              receivedStrokes[index] += 1;
+              strokesToGive -= 1;
+            }
+          });
+        }
+
+        holes.forEach(function(hole) {
+          scores.pushObject(self.store.createRecord('score', { hole: hole, receivedStrokes: receivedStrokes[hole.get('strokeIndex') - 1] }));
+        });
       });
     });
   },
