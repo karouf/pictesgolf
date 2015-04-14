@@ -1,6 +1,7 @@
 module.exports = function(app) {
   var express = require('express');
   var roundsRouter = express.Router();
+  var currentId = 2;
 
   roundsRouter.get('/', function(req, res) {
     res.send({
@@ -19,7 +20,12 @@ module.exports = function(app) {
   });
 
   roundsRouter.post('/', function(req, res) {
-    res.status(201).end();
+    currentId += 1;
+    res.status(201).send({
+      'rounds': {
+        id: currentId
+      }
+    });
   });
 
   roundsRouter.get('/1', function(req, res) {

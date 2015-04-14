@@ -1,6 +1,7 @@
 module.exports = function(app) {
   var express = require('express');
   var scorecardsRouter = express.Router();
+  var currentId = 2;
 
   scorecardsRouter.get('/', function(req, res) {
     res.send({
@@ -9,7 +10,12 @@ module.exports = function(app) {
   });
 
   scorecardsRouter.post('/', function(req, res) {
-    res.status(201).end();
+    currentId += 1;
+    res.status(201).send({
+      'scorecards': {
+        id: currentId
+      }
+    });
   });
 
   scorecardsRouter.get('/1', function(req, res) {

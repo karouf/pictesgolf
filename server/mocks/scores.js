@@ -1,6 +1,7 @@
 module.exports = function(app) {
   var express = require('express');
   var scoresRouter = express.Router();
+  var currentId = 18;
 
   scoresRouter.get('/', function(req, res) {
     res.send({
@@ -9,7 +10,12 @@ module.exports = function(app) {
   });
 
   scoresRouter.post('/', function(req, res) {
-    res.status(201).end();
+    currentId += 1;
+    res.status(201).send({
+      'scores': {
+        id: currentId
+      }
+    });
   });
 
   scoresRouter.get('/1', function(req, res) {
