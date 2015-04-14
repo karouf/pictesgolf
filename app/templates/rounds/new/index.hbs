@@ -1,7 +1,7 @@
 <h3>Nouvelle partie</h3>
 
 <div class="row">
-  <h4>Date & lieu</h4>
+  <h4>Détails</h4>
   <div class="input-field col s6">
     <label for="date" class="active">Date</label>
     {{input id="date" type="date" value=date}}
@@ -9,6 +9,18 @@
 
   <div class="col s6">
   {{materialize-select content=courses value=course label="Golf" prompt="Choisissez un golf" optionLabelPath="content.name" optionValuePath="content"}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s4">
+    {{materialize-select content=holesPlayable value=holesPlayed label="Trous joués" optionLabelPath="content.label" optionValuePath="content.value"}}
+  </div>
+  <div class="col s4">
+    {{materialize-select content=roundTypes value=roundType label="Type de partie" optionLabelPath="content.label" optionValuePath="content.value"}}
+  </div>
+  <div class="col s4">
+    {{materialize-select content=scoringTypes value=scoringType label="Scoring" optionLabelPath="content.label" optionValuePath="content.value"}}
   </div>
 </div>
 

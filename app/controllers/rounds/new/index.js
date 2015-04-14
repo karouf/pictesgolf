@@ -3,6 +3,36 @@ import Ember from 'ember';
 export default Ember.ObjectController.extend({
   date: moment(new Date()).format('YYYY-MM-DD'),
   selectedPlayers: Ember.A(),
+  holesPlayable: [
+    {
+      label: '9 trous',
+      value: 9
+    },
+    {
+      label: '18 trous',
+      value: 18
+    }
+  ],
+  roundTypes: [
+    {
+      label: 'Amical',
+      value: 'amical'
+    },
+    {
+      label: 'Compétition',
+      value: 'compétition'
+    }
+  ],
+  scoringTypes: [
+    {
+      label: 'Stableford',
+      value: 'stableford'
+    },
+    {
+      label: 'Strokeplay',
+      value: 'strokeplay'
+    }
+  ],
   initPlayers: function() {
     if(this.get('courseChosen')) {
       this.addBlankPlayer();
@@ -104,9 +134,9 @@ export default Ember.ObjectController.extend({
     var self = this;
 
     round.set('date', new Date(this.get('date')));
-    round.set('scoring', 'stableford');
-    round.set('holesPlayed', 9);
-    round.set('type', 'amical');
+    round.set('holesPlayed', this.get('holesPlayed'));
+    round.set('type', this.get('roundType'));
+    round.set('scoring', this.get('scoringType'));
 
     players.forEach(function(player) {
       var scorecard = self.store.createRecord('scorecard');
