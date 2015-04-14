@@ -1,0 +1,4 @@
+{{#each scorecard in content.round.scorecards}}
+  {{edit-scorecard scorecard=scorecard}}
+{{/each}}
+{{materialize-button icon="mdi-content-send" action="reviewScores" text="Vérifier les cartes de score"}}

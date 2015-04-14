@@ -10,6 +10,7 @@ Router.map(function() {
   this.resource('rounds', function() {
     this.route('new', function() {
       this.route('scores');
+      this.route('review');
     });
   });
 });

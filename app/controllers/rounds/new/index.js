@@ -3,9 +3,6 @@ import Ember from 'ember';
 export default Ember.ObjectController.extend({
   date: moment(new Date()).format('YYYY-MM-DD'),
   selectedPlayers: Ember.A(),
-  log: function() {
-//    console.log(this.get('selectedPlayers'));
-  }.observes('selectedPlayers.@each.player'),
   initPlayers: function() {
     if(this.get('courseChosen')) {
       this.addBlankPlayer();
@@ -16,6 +13,10 @@ export default Ember.ObjectController.extend({
   addBlankPlayer: function() {
     this.get('selectedPlayers').pushObject(Ember.Object.create({player: null, tee: null}));
   },
+  setCourse: function() {
+    var round = this.get('round');
+    round.set('course', this.get('course'));
+  }.observes('course'),
   courseChosen: function() {
     return !!this.get('course');
   }.property('course'),
@@ -99,14 +100,24 @@ export default Ember.ObjectController.extend({
   },
   createScorecards: function() {
     var players = this.get('selectedPlayers');
+    var round = this.get('round');
     var self = this;
-    var round = this.get('model.content');
+
+    round.set('scoring', 'stableford');
+    round.set('holesPlayed', 9);
+    round.set('type', 'amical');
 
     players.forEach(function(player) {
       var scorecard = self.store.createRecord('scorecard');
       scorecard.set('round', round);
       scorecard.set('player', player.get('player'));
       scorecard.set('tee', player.get('tee'));
+
+      var scores = scorecard.get('scores');
+      var holes = round.get('course.holes');
+      holes.forEach(function(hole) {
+        scores.pushObject(self.store.createRecord('score', { hole: hole }));
+      });
     });
   },
   actions: {

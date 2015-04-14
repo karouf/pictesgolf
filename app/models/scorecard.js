@@ -33,25 +33,6 @@ export default DS.Model.extend({
 
     return scores.sortBy('hole.strokeIndex');
   }.property('scores.@each.hole.strokeIndex'),
-  scoresByHoleNumber: function() {
-    var scores = this.get('scores');
-    var i;
-    var orderedScores = [];
-
-    var hasHoleNumber = function(score) {
-      return score.get('hole.number') === this;
-    };
-
-    for(i = 0; i < 18; i++) {
-      var score = scores.find(hasHoleNumber, i+1);
-
-      if(score) {
-        orderedScores[i] = score;
-      } else {
-        orderedScores[i] = null;
-      }
-    }
-
-    return orderedScores;
-  }.property('scores.@each.hole.number'),
+  scoresByHoleNumberSorting: ['hole.number'],
+  scoresByHoleNumber: Em.computed.sort('scores', 'scoresByHoleNumberSorting')
 });
