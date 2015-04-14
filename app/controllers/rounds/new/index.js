@@ -103,6 +103,7 @@ export default Ember.ObjectController.extend({
     var round = this.get('round');
     var self = this;
 
+    round.set('date', new Date(this.get('date')));
     round.set('scoring', 'stableford');
     round.set('holesPlayed', 9);
     round.set('type', 'amical');
