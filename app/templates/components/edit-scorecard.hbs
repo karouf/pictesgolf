@@ -12,7 +12,7 @@
     <tr>
       <th>Nb de coups</th>
       {{#each score in scorecard.scoresByHoleNumber}}
-        <td>{{score.hole.number}}{{edit-score score=score}}</td>
+        <td>{{edit-score score=score}}</td>
       {{/each}}
     </tr>
   </tbody>
