@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.ObjectController.extend({
   date: moment(new Date()).format('YYYY-MM-DD'),
@@ -149,13 +150,15 @@ export default Ember.ObjectController.extend({
         var strokesToGive = 57;
         var receivedStrokes = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
+        var addReceivedStroke = function(hole, index) {
+          if(strokesToGive > 0) {
+            receivedStrokes[index] += 1;
+            strokesToGive -= 1;
+          }
+        };
+
         while(strokesToGive > 0) {
-          holes.sortBy('strokeIndex').forEach(function(hole, index) {
-            if(strokesToGive > 0) {
-              receivedStrokes[index] += 1;
-              strokesToGive -= 1;
-            }
-          });
+          holes.sortBy('strokeIndex').forEach(addReceivedStroke);
         }
 
         holes.forEach(function(hole) {
