@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import DS from 'ember-data';
 
 export default Ember.Component.extend({
   holes: function() {
     var round = this.get('round');
-    var course, promise;
+    var promise;
 
     if(round.isFulfilled === undefined || round.isFulfilled === true) {
       promise = round.get('course').then(function(course) {
@@ -24,6 +25,5 @@ export default Ember.Component.extend({
     return DS.PromiseArray.create({
       promise: promise
     });
-    //return this.get('round.course').getEach('holes').sortBy('number');
   }.property('round.course.holes.@each.number')
 });
