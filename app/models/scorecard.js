@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -41,5 +42,5 @@ export default DS.Model.extend({
     return scores.sortBy('hole.strokeIndex');
   }.property('scores.@each.hole.strokeIndex'),
   scoresByHoleNumberSorting: ['hole.number'],
-  scoresByHoleNumber: Em.computed.sort('scores', 'scoresByHoleNumberSorting')
+  scoresByHoleNumber: Ember.computed.sort('scores', 'scoresByHoleNumberSorting')
 });
