@@ -1,7 +1,14 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  playingIndex: DS.attr('number'),
+  playingIndex: function() {
+    var index = this.get('player.index');
+    var slope = this.get('tee.slope');
+    var sss = this.get('tee.sss');
+    var par = this.get('round.course.par');
+
+    return Math.round((index * slope) / 113 + (sss - par));
+  }.property('player.index', 'tee.slope', 'tee.sss', 'round.course.par'),
   round: DS.belongsTo('round', {async: true}),
   player: DS.belongsTo('player', {async: true}),
   tee: DS.belongsTo('tee', {async: true}),
