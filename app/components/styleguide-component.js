@@ -14,7 +14,7 @@ export default Ember.Component.extend({
     var existingProperties = ['helperName', 'container', 'elementId', 'currentState', 'classNames', 'component'];
     for(var propName in this) {
       if(this.hasOwnProperty(propName)) {
-        if(propName[0] != '_') {
+        if(propName[0] !== '_') {
           if(existingProperties.indexOf(propName) < 0) {
             if(propName.indexOf('Binding') < 0) {
               passedProperties.push(propName);
@@ -29,7 +29,7 @@ export default Ember.Component.extend({
   createOutputView: function() {
     var componentLookup = this.container.lookup('component-lookup:main');
     var viewClass = componentLookup.lookupFactory(this.get('component'));
-    var passedProperties = this.get('passedProperties')
+    var passedProperties = this.get('passedProperties');
     var props = {classNames: ['styleguide-output']};
 
     var i;
