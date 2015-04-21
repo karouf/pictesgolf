@@ -1,5 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+## Ember
 # compiled output
 /frontend/dist
 /frontend/tmp
@@ -15,3 +16,8 @@
 /frontend/libpeerconnection.log
 /frontend/npm-debug.log
 /frontend/testem.log
+
+
+## Rack
+# assets from the Ember build
+/public
