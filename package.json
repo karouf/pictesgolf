@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "install": "cd frontend && npm install && cd .."
+    "install": "cd frontend && npm install && cd ..",
+    "postinstall": "cd frontend && ember install && cd .."
   }
 }
