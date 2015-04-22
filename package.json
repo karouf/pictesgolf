@@ -4,6 +4,7 @@
     "postinstall": "cd frontend && ember install && cd .. && ./build.sh"
   },
   "dependencies": {
-    "ember-cli": "0.2.1"
+    "ember-cli": "0.2.1",
+    "ember-cli-htmlbars": "0.7.6"
   }
 }
