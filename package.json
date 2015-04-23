@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "postinstall": "./install_frontend.sh"
+    "install": "cd frontend && npm install --production && cd ..",
+    "postinstall": "cd frontend && ember install && cd .. && ./build.sh"
   }
 }
