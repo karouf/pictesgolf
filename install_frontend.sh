@@ -20,15 +20,13 @@ function boldMessage {
 }
 
 #echo -e "${color}Building Ember app${reset}"
-printMessage 4 "Building Ember app"
+boldMessage 4 "Installing Ember frontend app"
+
 cd frontend
-ember build --environment production
+npm install --production
+ember install
 cd ../
 
-rm -rf public
-mkdir public
+./build.sh
 
-printMessage 4 "Copying ember build files to public"
-cp -r frontend/dist/* public/
-
-printMessage 4 "Ember app built"
+printMessage 4 "Frontend installed"
