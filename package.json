@@ -2,5 +2,8 @@
   "scripts": {
     "install": "cd frontend && npm install --production && cd ..",
     "postinstall": "cd frontend && ember install && cd .. && ./build.sh"
+  },
+  "dependencies": {
+    "ember-cli": "0.2.1"
   }
 }
