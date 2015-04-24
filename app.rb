@@ -10,6 +10,9 @@ end
 class Course < ActiveRecord::Base
 end
 
+class Player < ActiveRecord::Base
+end
+
 class API < Grape::API
   format :json
 
@@ -19,5 +22,9 @@ class API < Grape::API
 
   get :courses do
     { courses: Course.all }
+  end
+
+  get :players do
+    { players: Player.all }
   end
 end
