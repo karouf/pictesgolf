@@ -16,4 +16,4 @@ PLATFORMS
 
 DEPENDENCIES
   shotgun (~> 0.9.1)
-  thin
+  thin (~> 1.6.3)
