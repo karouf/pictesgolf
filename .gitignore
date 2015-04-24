@@ -21,3 +21,8 @@
 ## Rack
 # assets from the Ember build
 /public
+
+
+## ActiveRecord
+# local DB config
+/config/database.yml

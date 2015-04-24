@@ -1,0 +1,10 @@
+development: &default
+  adapter: postgresql
+  database: pictesgolf
+  username: pictesgolf
+  password: pictesgolf
+  host: localhost
+
+test:
+  <<: *default
+  database: pictesgolf_test

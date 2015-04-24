@@ -1,12 +1,24 @@
 require 'grape'
+require 'active_record'
+
+dbconfig = YAML::load(File.open('./config/database.yml'))
+ActiveRecord::Base.establish_connection(dbconfig[ENV['RACK_ENV']])
+
+class Round < ActiveRecord::Base
+end
 
 class API < Grape::API
   format :json
   prefix :api
 
   get :rounds do
-    { rounds: [] }
+    { rounds: Round.all }
   end
+end
+
+api = Rack::Builder.app do
+  use ActiveRecord::ConnectionAdapters::ConnectionManagement
+  run API
 end
 
 frontend = Rack::Builder.app do
@@ -16,6 +28,6 @@ frontend = Rack::Builder.app do
 end
 
 run Rack::Cascade.new([
-  API,
+  api,
   frontend
 ])

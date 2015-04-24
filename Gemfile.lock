@@ -1,12 +1,20 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (4.2.1)
+      activesupport (= 4.2.1)
+      builder (~> 3.1)
+    activerecord (4.2.1)
+      activemodel (= 4.2.1)
+      activesupport (= 4.2.1)
+      arel (~> 6.0)
     activesupport (4.2.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    arel (6.0.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -36,6 +44,7 @@ GEM
     minitest (5.6.0)
     multi_json (1.11.0)
     multi_xml (0.5.5)
+    pg (0.18.1)
     rack (1.6.0)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -60,6 +69,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord (~> 4.2.1)
   grape (~> 0.11.0)
+  pg (~> 0.18.1)
   shotgun (~> 0.9.1)
   thin (~> 1.6.3)
