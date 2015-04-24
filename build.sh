@@ -22,7 +22,7 @@ function boldMessage {
 #echo -e "${color}Building Ember app${reset}"
 cd frontend
 
-if [ ARGV[1] == "dev" ]; then
+if [ $1 == "dev" ]; then
   printMessage 4 "Building Ember app (development)"
   ember build --environment development
 else
