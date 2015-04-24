@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "install": "cd frontend && npm install --production && cd ..",
-    "postinstall": "cd frontend && ember install && bower install && cd .. && ./build.sh"
+    "install": "cd frontend && npm install --production && bower install && cd ..",
+    "postinstall": "./build.sh"
   },
   "dependencies": {
     "ember-cli": "0.2.1"
