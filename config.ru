@@ -9,7 +9,6 @@ end
 
 class API < Grape::API
   format :json
-  prefix :api
 
   get :rounds do
     { rounds: Round.all }
