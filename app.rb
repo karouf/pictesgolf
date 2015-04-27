@@ -1,6 +1,7 @@
 require 'grape'
 require 'grape-entity'
 require 'active_record'
+require 'hashie-forbidden_attributes'
 
 dbconfig = YAML::load(File.open('./config/database.yml'))
 ActiveRecord::Base.establish_connection(dbconfig[ENV['RACK_ENV']])
