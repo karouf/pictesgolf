@@ -1,5 +1,16 @@
-Course.find_or_create_by(name: 'Niort-Romagné')
-Course.find_or_create_by(name: 'La Rochelle Sud')
+niort = Course.find_or_create_by(name: 'Niort-Romagné')
+niort.tees.find_or_create_by(color: 'black', slope: 130, sss: 71.2)
+niort.tees.find_or_create_by(color: 'white', slope: 130, sss: 71.2)
+niort.tees.find_or_create_by(color: 'yellow', slope: 126, sss: 69.5)
+niort.tees.find_or_create_by(color: 'blue', slope: 120, sss: 66.7)
+niort.tees.find_or_create_by(color: 'red', slope: 118, sss: 65.4)
+
+lajarne = Course.find_or_create_by(name: 'La Rochelle Sud')
+lajarne.tees.find_or_create_by(color: 'black', slope: 120, sss: 66.0)
+lajarne.tees.find_or_create_by(color: 'white', slope: 120, sss: 66.0)
+lajarne.tees.find_or_create_by(color: 'yellow', slope: 118, sss: 65.8)
+lajarne.tees.find_or_create_by(color: 'blue', slope: 114, sss: 63.9)
+lajarne.tees.find_or_create_by(color: 'red', slope: 114, sss: 63.9)
 
 Player.find_or_create_by(name: 'Renaud Delaville', index: 54)
 Player.find_or_create_by(name: 'Yann Allirol', index: 54)

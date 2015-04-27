@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424161000) do
+ActiveRecord::Schema.define(version: 20150424174200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20150424161000) do
     t.integer "holes_played", default: 18, null: false
     t.integer "scoring",                   null: false
     t.integer "type",                      null: false
+  end
+
+  create_table "tees", force: :cascade do |t|
+    t.string  "color",                             null: false
+    t.integer "slope",                             null: false
+    t.decimal "sss",       precision: 3, scale: 1, null: false
+    t.integer "course_id"
   end
 
 end
