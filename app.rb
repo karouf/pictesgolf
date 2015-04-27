@@ -21,6 +21,13 @@ class Course < ActiveRecord::Base
 end
 
 class Hole < ActiveRecord::Base
+  include Grape::Entity::DSL
+
+  belongs_to :course
+
+  entity :id, :number, :par, :stroke_index do
+    expose(:course) { |entity| entity.course.id }
+  end
 end
 
 class Tee < ActiveRecord::Base
@@ -55,6 +62,15 @@ class API < Grape::API
       get do
         tee = Tee.find(params[:id])
         present :tees, tee
+      end
+    end
+  end
+
+  resource :holes do
+    route_param :id do
+      get do
+        hole = Hole.find(params[:id])
+        present :holes, hole
       end
     end
   end
