@@ -19,7 +19,11 @@ class Course < ActiveRecord::Base
 end
 
 class Tee < ActiveRecord::Base
+  include Grape::Entity::DSL
+
   belongs_to :course
+
+  entity :id, :color, :slope, :sss
 end
 
 class Player < ActiveRecord::Base
@@ -39,5 +43,14 @@ class API < Grape::API
 
   get :players do
     { players: Player.all }
+  end
+
+  resource :tees do
+    route_param :id do
+      get do
+        tee = Tee.find(params[:id])
+        present :tees, tee
+      end
+    end
   end
 end
