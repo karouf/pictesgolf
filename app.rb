@@ -7,11 +7,19 @@ dbconfig = YAML::load(File.open('./config/database.yml'))
 ActiveRecord::Base.establish_connection(dbconfig[ENV['RACK_ENV']])
 
 class Round < ActiveRecord::Base
+  include Grape::Entity::DSL
+
+  belongs_to :course
+
+  entity :id, :date, :holes_played, :scoring, :competition do
+    expose(:course) { |entity| entity.course.id }
+  end
 end
 
 class Course < ActiveRecord::Base
   include Grape::Entity::DSL
 
+  has_many :rounds
   has_many :tees
   has_many :holes
 
@@ -45,8 +53,36 @@ end
 class API < Grape::API
   format :json
 
-  get :rounds do
-    { rounds: Round.all }
+  resource:rounds do
+    get do
+      { rounds: Round.all }
+    end
+
+    params do
+      requires :round, type: Hash do
+        requires :date, type: Date
+        requires :course_id, type: Integer
+        requires :holes_played, type: Integer, values: [9, 18]
+        requires :scoring, type: String, values: ['stableford', 'strokeplay']
+        requires :competition, type: Boolean
+      end
+    end
+    post do
+      error! unless course = Course.find(params[:round][:course_id])
+
+      round = Round.new
+      round.date = params[:round][:date]
+      round.course = course
+      round.holes_played = params[:round][:holes_played]
+      round.scoring = params[:round][:scoring]
+      round.competition = params[:round][:competition]
+
+      if round.save
+        present :rounds, round
+      else
+        error!
+      end
+    end
   end
 
   get :courses do
