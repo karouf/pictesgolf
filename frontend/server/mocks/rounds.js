@@ -11,7 +11,7 @@ module.exports = function(app) {
           date: '2015-03-05',
           holesPlayed: 9,
           scoring: 'stableford',
-          type: 'amical',
+          competition: false,
           course: 1,
           scorecards: [1, 2]
         }
@@ -35,7 +35,7 @@ module.exports = function(app) {
         date: '2015-03-05',
         holesPlayed: 9,
         scoring: 'stableford',
-        type: 'amical',
+        competition: false,
         course: 1,
         scorecards: [1, 2]
       }

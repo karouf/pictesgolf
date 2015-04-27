@@ -25,5 +25,14 @@ export default Ember.Component.extend({
     return DS.PromiseArray.create({
       promise: promise
     });
-  }.property('round.course.holes.@each.number')
+  }.property('round.course.holes.@each.number'),
+  roundType: function() {
+    var competition = this.get('round.competition');
+
+    if(competition) {
+      return 'competition';
+    } else {
+      return 'amical';
+    }
+  }.property('round.competition')
 });

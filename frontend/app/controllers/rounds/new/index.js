@@ -17,11 +17,11 @@ export default Ember.ObjectController.extend({
   roundTypes: [
     {
       label: 'Amical',
-      value: 'amical'
+      value: false
     },
     {
       label: 'Compétition',
-      value: 'compétition'
+      value: true
     }
   ],
   scoringTypes: [
@@ -136,7 +136,7 @@ export default Ember.ObjectController.extend({
 
     round.set('date', new Date(this.get('date')));
     round.set('holesPlayed', this.get('holesPlayed'));
-    round.set('type', this.get('roundType'));
+    round.set('competition', this.get('roundType'));
     round.set('scoring', this.get('scoringType'));
 
     players.forEach(function(player) {
