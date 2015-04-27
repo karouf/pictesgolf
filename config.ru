@@ -5,6 +5,11 @@ api = Rack::Builder.app do
   run API
 end
 
+assets = Rack::Builder.app do
+  use Rack::Static, :urls => [""], :root => 'public'
+  run lambda { |*| }
+end
+
 frontend = Rack::Builder.app do
   run lambda { |env|
     [
@@ -23,7 +28,7 @@ app = Rack::Builder.new do
     run api
   end
   map '/' do
-    run frontend
+    run Rack::Cascade.new([assets, frontend])
   end
 end
 run app
