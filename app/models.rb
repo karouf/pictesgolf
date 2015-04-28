@@ -1,0 +1,6 @@
+require_relative 'models/course'
+require_relative 'models/hole'
+require_relative 'models/player'
+require_relative 'models/round'
+require_relative 'models/scorecard'
+require_relative 'models/tee'
