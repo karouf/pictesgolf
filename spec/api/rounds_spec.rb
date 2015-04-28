@@ -11,7 +11,7 @@ describe API do
     end
 
     it 'returns an empty array of rounds' do
-      JSON.parse(last_response.body).must_equal({ 'rounds' => [] })
+      json['rounds'].must_equal []
     end
   end
 
@@ -26,7 +26,7 @@ describe API do
     end
 
     it 'returns the id of the created round' do
-      JSON.parse(last_response.body).must_equal({ 'rounds' => { 'id' => 1 } })
+      json['rounds']['id'].must_equal 1
     end
   end
 end
