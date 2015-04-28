@@ -16,6 +16,20 @@ class Round < ActiveRecord::Base
   end
 end
 
+class Scorecard < ActiveRecord::Base
+  include Grape::Entity::DSL
+
+  belongs_to :round
+  belongs_to :player
+  belongs_to :tee
+
+  entity :id do
+    expose(:round) { |entity| entity.round.id }
+    expose(:player) { |entity| entity.player.id }
+    expose(:tee) { |entity| entity.tee.id }
+  end
+end
+
 class Course < ActiveRecord::Base
   include Grape::Entity::DSL
 
@@ -79,6 +93,32 @@ class API < Grape::API
 
       if round.save
         present :rounds, round
+      else
+        error!
+      end
+    end
+  end
+
+  resource :scorecards do
+    params do
+      requires :scorecard, type: Hash do
+        requires :round_id, type: Integer
+        requires :player_id, type: Integer
+        requires :tee_id, type: Integer
+      end
+    end
+    post do
+      error! unless round = Round.find(params[:scorecard][:round_id])
+      error! unless player = Player.find(params[:scorecard][:player_id])
+      error! unless tee = Tee.find(params[:scorecard][:tee_id])
+
+      scorecard = Scorecard.new
+      scorecard.round = round
+      scorecard.player = player
+      scorecard.tee = tee
+
+      if scorecard.save
+        present :scorecards, scorecard
       else
         error!
       end
