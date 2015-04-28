@@ -38,7 +38,7 @@ class API < Grape::API
       round.competition = params[:round][:competition]
 
       if round.save
-        present :rounds, round
+        { rounds: { id: round.id } }
       else
         error!
       end

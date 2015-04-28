@@ -1,8 +1,11 @@
 ENV['RACK_ENV'] = 'test'
 
 require 'minitest/autorun'
+require 'factory_girl'
 
 require_relative '../app'
+
+FactoryGirl.find_definitions
 
 module PictesGolf
   module Spec

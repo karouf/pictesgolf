@@ -27,6 +27,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     equalizer (0.0.11)
     eventmachine (1.0.7)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
     grape (0.11.0)
       activesupport
       builder
@@ -78,6 +80,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 4.2.1)
+  factory_girl (~> 4.5.0)
   grape (~> 0.11.0)
   grape-entity (~> 0.4.5)
   hashie-forbidden_attributes (~> 0.1.1)

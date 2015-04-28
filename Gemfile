@@ -16,4 +16,5 @@ end
 group 'test' do
   gem 'rack-test', '~> 0.6.3'
   gem 'sqlite3', '~> 1.3.10'
+  gem 'factory_girl', '~> 4.5.0'
 end
