@@ -12,3 +12,8 @@ gem 'pg', '~> 0.18.1'
 group 'development' do
   gem 'shotgun', '~> 0.9.1'
 end
+
+group 'test' do
+  gem 'rack-test', '~> 0.6.3'
+  gem 'sqlite3', '~> 1.3.10'
+end

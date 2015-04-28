@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'rake'
+require 'rake/testtask'
 require 'active_record'
 require_relative 'app'
 
@@ -23,3 +24,11 @@ task :environment do
 end
 
 load 'active_record/railties/databases.rake'
+
+Rake::TestTask.new do |t|
+  t.name = 'spec'
+  t.description = 'Run all specs'
+  t.libs.push 'app'
+  t.test_files = FileList['spec/**/*_spec.rb']
+  t.verbose = true
+end
