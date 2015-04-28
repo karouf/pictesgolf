@@ -11,7 +11,7 @@ ActiveRecord::Base.establish_connection(dbconfig[ENV['RACK_ENV']])
 class API < Grape::API
   format :json
 
-  resource:rounds do
+  resource :rounds do
     get do
       { rounds: Round.all }
     end
