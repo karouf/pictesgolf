@@ -12,10 +12,12 @@ class API < Grape::API
   format :json
 
   resource :rounds do
+    desc 'Return all rounds'
     get do
       { rounds: Round.all }
     end
 
+    desc 'Create a round'
     params do
       requires :round, type: Hash do
         requires :date, type: Date
@@ -44,6 +46,7 @@ class API < Grape::API
   end
 
   resource :scorecards do
+    desc 'Create a scorecard'
     params do
       requires :scorecard, type: Hash do
         requires :round_id, type: Integer
@@ -69,17 +72,20 @@ class API < Grape::API
     end
   end
 
+  desc 'Return all courses'
   get :courses do
     courses = Course.all
     present :courses, courses
   end
 
+  desc 'Return all players'
   get :players do
     { players: Player.all }
   end
 
   resource :tees do
     route_param :id do
+      desc 'Return a specific tee'
       get do
         tee = Tee.find(params[:id])
         present :tees, tee
@@ -89,6 +95,7 @@ class API < Grape::API
 
   resource :holes do
     route_param :id do
+      desc 'Return a specific hole'
       get do
         hole = Hole.find(params[:id])
         present :holes, hole
