@@ -3,7 +3,6 @@ ENV['RACK_ENV'] ||= 'development'
 require 'rake'
 require 'rake/testtask'
 require 'active_record'
-require_relative 'app'
 
 seed_loader = Class.new do
   def load_seed
@@ -12,15 +11,13 @@ seed_loader = Class.new do
 end
 
 include ActiveRecord::Tasks
-DatabaseTasks.env = :development
+DatabaseTasks.env = ENV['RACK_ENV'].to_sym
 DatabaseTasks.db_dir = 'db'
 DatabaseTasks.migrations_paths = 'db'
-DatabaseTasks.database_configuration = dbconfig
 DatabaseTasks.seed_loader = seed_loader.new
 
 task :environment do
-  ActiveRecord::Base.configurations = DatabaseTasks.database_configuration
-  ActiveRecord::Base.establish_connection DatabaseTasks.env
+  require_relative 'app'
 end
 
 load 'active_record/railties/databases.rake'
@@ -34,7 +31,7 @@ Rake::TestTask.new do |t|
 end
 
 desc 'List all endpoints'
-task :endpoints do
+task :endpoints => :environment do
   puts
   puts "Version\t\tMethod\t\tPath\t\t\t\tDescription"
   puts

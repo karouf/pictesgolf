@@ -6,10 +6,10 @@ require 'erb'
 
 require_relative 'app/models'
 
-def dbconfig
-  YAML::load(ERB.new(File.read('./config/database.yml')).result)
+if File.exist?('./config/database.yml')
+  ActiveRecord::Base.configurations = YAML::load(ERB.new(File.read('./config/database.yml')).result)
 end
-ActiveRecord::Base.establish_connection(dbconfig[ENV['RACK_ENV']])
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || ENV['RACK_ENV'].to_sym)
 
 class API < Grape::API
   format :json
