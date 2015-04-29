@@ -15,7 +15,7 @@ include ActiveRecord::Tasks
 DatabaseTasks.env = :development
 DatabaseTasks.db_dir = 'db'
 DatabaseTasks.migrations_paths = 'db'
-DatabaseTasks.database_configuration = YAML::load(File.open('./config/database.yml'))
+DatabaseTasks.database_configuration = dbconfig
 DatabaseTasks.seed_loader = seed_loader.new
 
 task :environment do

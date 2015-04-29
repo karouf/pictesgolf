@@ -2,10 +2,13 @@ require 'grape'
 require 'grape-entity'
 require 'active_record'
 require 'hashie-forbidden_attributes'
+require 'erb'
 
 require_relative 'app/models'
 
-dbconfig = YAML::load(File.open('./config/database.yml'))
+def dbconfig
+  YAML::load(ERB.new(File.read('./config/database.yml')).result)
+end
 ActiveRecord::Base.establish_connection(dbconfig[ENV['RACK_ENV']])
 
 class API < Grape::API
