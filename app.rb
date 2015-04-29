@@ -102,4 +102,32 @@ class API < Grape::API
       end
     end
   end
+
+  resource :scores do
+    desc 'Create a score'
+    params do
+      requires :score, type: Hash do
+        requires :strokes, type: Integer
+        requires :received_strokes, type: Integer
+        requires :scorecard_id, type: Integer
+        requires :hole_id, type: Integer
+      end
+    end
+    post do
+      error! "No scorecard with ID #{params[:score][:scorecard_id]}", 400 unless scorecard = Scorecard.find_by(id: params[:score][:scorecard_id])
+      error! "No hole with ID #{params[:score][:hole_id]}", 400 unless hole = Hole.find_by(id: params[:score][:hole_id])
+
+      score = Score.new
+      score.strokes = params[:score][:strokes]
+      score.received_strokes = params[:score][:received_strokes]
+      score.scorecard = scorecard
+      score.hole = hole
+
+      if score.save
+        { scores: { id: score.id } }
+      else
+        error!
+      end
+    end
+  end
 end
